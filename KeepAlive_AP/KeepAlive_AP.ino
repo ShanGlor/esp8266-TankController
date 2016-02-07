@@ -1,6 +1,12 @@
 //  Description of Project;
 //      To increase the capabilities of Hobby grade RC control. Will be using RC Tanks as test bed.
 
+//  Objective Completed in this Sketch;
+//      1). Controlling Turret and Hull functions without wiring connecting hull and turret. This will
+//          Allow continuous 360 deg. rotations of turret. 
+//          Using Two esp8266's one in the turret and one in the Hull sending Wi-Fi Data from the 
+//          turret to the hull.
+
 //  Objective working on in this Sketch;
 
 //      1). Add Gryo sketch and send by Wi-Fi Gyro Data from the 
@@ -18,14 +24,10 @@
 
 //      3).  Using the capabilities of FS-TH9X RC radio using ER9X software, transmit 6 switch positions
 //           encoded on one channel and have the Arduino connected to the Rx module decode these
-//           switch position. This gives the ability of & full analog and the position of 6 switches.
+//           switch position. This gives the ability of 6 full analog and the position of 6 switches.
 //           a total of 13 functions on 8 channels. 
 
-//  Objective Completed in this Sketch;
-//      1). Controlling Turret and Hull functions without wiring connecting hull and turret. This will
-//          Allow continuous 360 deg. rotations of turret. 
-//          Using Two esp8266's one in the turret and one in the Hull sending Wi-Fi Data from the 
-//          turret to the hull.
+
 
 
 // Notes for this sketch;  
@@ -43,11 +45,6 @@
 //    timed out between Wi-Fi actual successful transmissions. Wifi_Failue_cnt in both AP and STA
 //    can be used as a gauge as RC and Gyro programming is added. If or when this count is constantly
 //    zero because of additional programming the frequency of transmission maybe decreasing.
-
-
-
-
-
 
 
 //#include <ESP8266WiFi.h>
@@ -161,17 +158,18 @@ void Wifi_AP_start(){
     Wifi_Status =1;//......0=OFF, 1=ON, 2=FAILD,3=START .........................................//
 }
 
-
-
-
 void Serial_print(){
-        Serial.print(" AP Data Sent(");Serial.print(DataSent); Serial.print(") ");
+        Serial.print("Ap Data to Send(");Serial.print(DataSent); Serial.print(") ");
         Serial.print("\t");
-        Serial.print("Status(s); ");Serial.print("Wifi(");Serial.print(Wifi_Status);Serial.print(") ");
+        Serial.print("Status; ");
+        Serial.print("W(");Serial.print(Wifi_Status);Serial.print(") ");
+        Serial.print("G(");Serial.print(Gyro_Status);Serial.print(") ");
         Serial.print("\t");
-        Serial.print("Fail_cnt(s); ");
-        Serial.print("Wifi_C(");Serial.print(Wifi_Failure_cnt);Serial.print(") ");
-        Serial.print(Gyro_Status);
+        Serial.print("Fail_cnts; ");
+        Serial.print("W(");Serial.print(Wifi_Failure_cnt);Serial.print(") ");
+        Serial.print("G(");Serial.print(Gyro_Failure_cnt);Serial.print(") ");
+        Serial.print("\t");
+        Serial.print("Wifi Transmissions(");Serial.print(cnt);Serial.print("}");
         Serial.println(); 
 }
 /////////////////////////// SETUP ROUTINE /////////////////////////////////////////////////////////
@@ -194,22 +192,21 @@ void loop() {
 
     while(1==1){
         pgm();//...................................... Simulate Timeing  ............................//
+        
         if(Gyro_Status==1)DataSent = ypr[0];
         else {DataSent = "OFF";}
         
         if(client ==true && client.isSendWaiting()==false) {
+            cnt=cnt+1;
             client.print(DataSent+ '\r');
             Wifi_Failure_cnt = 0;
-            //cnt=cnt+1;
-           // DataSent = cnt;  
         }  
         else {Fail_ID=2;Failure_Detection();}
-            Serial_print();
-            if(Wifi_Status ==2){
+        if(Wifi_Status ==2){
             Wifi_Failure_cnt = 0;
             Wifi_Status =3;
             return;
-          }
-         
-      }   
+        }  
+        Serial_print();
+   }   
 } 
