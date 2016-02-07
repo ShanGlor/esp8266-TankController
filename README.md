@@ -1,5 +1,6 @@
 # esp8266-TankController
-HengLong Tank Controller using the esp8266
+HengLong Tank Controller
+
 Description of Project;
       To increase the capabilities of Hobby grade RC control.
       Will be using One Hen Long RC Tank, One FS-TH9X RC radio using ER9X software and Two esp8266-12
