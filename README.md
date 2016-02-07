@@ -21,28 +21,27 @@ Description of Project;
 
   Objective working on in this Sketch;
 
-      
       Test using the esp8266's i/o controlling RC Tanks functions with the hope of replacing 
       the Arduino Due mentioned below.
 
-//  Objectives achieved already with an Arduino but not yet added to this project; 
+  Objectives achieved already with an Arduino but not yet added to this project; 
 
-//      Using MPU6050 Gyro connected to Arduino Due to control cannon elevation and 
-//      turret rotation to remain fixed on target as hull is moving.
+      Using MPU6050 Gyro connected to Arduino Due to control cannon elevation and 
+      turret rotation to remain fixed on target as hull is moving.
 
 
-// Notes for this sketch;  
-//    The esp8266 sketch for the turret is referred to as AP and the esp8266 sketch in the hull is STA.
-// 
-//    The time for AP Wi-Fi to Transmit data to STA plus STA to send ACK to AP = approx.0.125ms.
-//    This would cause blocking of both AP and STA sketches of 0.125ms each Wi-Fi transmission this
-//    would make Safe RC control impossible.
-//
-//    Because the Sketch blocking nature of the client.print in include <ESP8266WiFi.h> it is 
-//    not used in AP instead Non Blocking include "pfodESP8266WiFi.h" is used. Also print timeout
-//    in STA is set to zero. This stops the sketch blocking making RC control possible.
-//
-//    AP Wifi_Failue_cnt = number of AP's client.print skipped and STA's client.reads that 
-//    timed out between Wi-Fi actual successful transmissions. Wifi_Failue_cnt in both AP and STA
-//    can be used as a gauge as RC and Gyro programming is added. If or when this count is constantly
-//    zero because of additional programming the frequency of transmission maybe decreasing.
+ Notes for this sketch;  
+    The esp8266 sketch for the turret is referred to as AP and the esp8266 sketch in the hull is STA.
+ 
+    The time for AP Wi-Fi to Transmit data to STA plus STA to send ACK to AP = approx.0.125ms.
+    This would cause blocking of both AP and STA sketches of 0.125ms each Wi-Fi transmission this
+    would make Safe RC control impossible.
+
+    Because the Sketch blocking nature of the client.print in include <ESP8266WiFi.h> it is 
+    not used in AP instead Non Blocking include "pfodESP8266WiFi.h" is used. Also print timeout
+    in STA is set to zero. This stops the sketch blocking making RC control possible.
+
+    AP Wifi_Failue_cnt = number of AP's client.print skipped and STA's client.reads that 
+    timed out between Wi-Fi actual successful transmissions. Wifi_Failue_cnt in both AP and STA
+    can be used as a gauge as RC and Gyro programming is added. If or when this count is constantly
+    zero because of additional programming the frequency of transmission maybe decreasing.
