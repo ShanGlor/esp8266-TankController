@@ -1,5 +1,5 @@
 # esp8266-TankController
-HengLong Tank Controller
+RC Tank Controller
 
 Description of Project;
       To increase the capabilities of Hobby grade RC control. 
