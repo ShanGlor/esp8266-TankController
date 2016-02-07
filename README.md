@@ -2,11 +2,11 @@
 HengLong Tank Controller
 
 Description of Project;
-      To increase the capabilities of Hobby grade RC control.
-      Will be using One Hen Long RC Tank, One FS-TH9X RC radio using ER9X software and Two esp8266-12
-      and Two FS-R9B receivers.
+      To increase the capabilities of Hobby grade RC control. 
+      
+      Will be using One Hen Long RC Tank, One FS-TH9X RC radio using ER9X software and Two esp8266-12 and Two FS-R9B receivers.
 
-  Objective Completed in this Sketch;
+  Objectives Completed;
   
       1). Controlling Turret(Sketch KeepAlive_AP) and Hull functions(Sketch KeepAlive_STA) without 
           wiring connecting hull and turret. This will allow continuous 360 deg. rotations of turret. 
@@ -21,7 +21,7 @@ Description of Project;
            decode these switch position. This gives the ability of 6 full analog and the position  
            of 6 switches. A total of 13 functions on 8 channels. (Outputs not yet added to sketches.)
 
-  Objective working on in this Sketch;
+  Objective working on;
 
       Test using the esp8266's i/o controlling RC Tanks functions with the hope of replacing 
       the Arduino Due mentioned below.
@@ -32,8 +32,8 @@ Description of Project;
       turret rotation to remain fixed on target as hull is moving.
 
 
- Notes for this sketch;  
-    The esp8266 sketch for the turret is referred to as AP and the esp8266 sketch in the hull is STA.
+ Notes for this project;  
+    The esp8266 sketch for the turret is referred to asKeepAlive_AP and the esp8266 sketch in the hull is KeepAlive_STA.
  
     The time for AP Wi-Fi to Transmit data to STA plus STA to send ACK to AP = approx.0.125ms.
     This would cause blocking of both AP and STA sketches of 0.125ms each Wi-Fi transmission this
