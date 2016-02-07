@@ -34,6 +34,7 @@ Description of Project;
 
 
  Notes for this project;  
+ 
     The esp8266 sketch for the turret is KeepAlive_AP and the esp8266 sketch in the hull is KeepAlive_STA.
  
     The time for AP Wi-Fi to Transmit data to STA plus STA to send ACK to AP = approx.0.125ms.
