@@ -34,7 +34,7 @@ Description of Project;
 
 
  Notes for this project;  
-    The esp8266 sketch for the turret is referred to asKeepAlive_AP and the esp8266 sketch in the hull is KeepAlive_STA.
+    The esp8266 sketch for the turret is KeepAlive_AP and the esp8266 sketch in the hull is KeepAlive_STA.
  
     The time for AP Wi-Fi to Transmit data to STA plus STA to send ACK to AP = approx.0.125ms.
     This would cause blocking of both AP and STA sketches of 0.125ms each Wi-Fi transmission this
