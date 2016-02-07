@@ -223,7 +223,6 @@ void loop() {
         if(Gyro_Status==1)getMPU6050data();
         if(Gyro_Status==1)DataSent = ypr[0];
         else {DataSent = "OFF";}
-        
         if(client ==true && client.isSendWaiting()==false) {
             cnt=cnt+1;
             client.print(DataSent+ '\r');
