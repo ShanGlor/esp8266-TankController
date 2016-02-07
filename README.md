@@ -6,6 +6,7 @@ Description of Project;
       and Two FS-R9B receivers.
 
   Objective Completed in this Sketch;
+  
       1). Controlling Turret(Sketch KeepAlive_AP) and Hull functions(Sketch KeepAlive_STA) without 
           wiring connecting hull and turret. This will allow continuous 360 deg. rotations of turret. 
           Using Two esp8266's one in the turret and one in the Hull sending Wi-Fi Data from the 
