@@ -4,7 +4,8 @@ HengLong Tank Controller
 Description of Project;
       To increase the capabilities of Hobby grade RC control. 
       
-      Will be using One Hen Long RC Tank, One FS-TH9X RC radio using ER9X software and Two esp8266-12 and Two FS-R9B receivers.
+      Will be using One Hen Long RC Tank, One FS-TH9X RC radio using ER9X software and Two esp8266-12 and 
+      Two FS-R9B receivers.
 
   Objectives Completed;
   
